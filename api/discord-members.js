@@ -1,3 +1,4 @@
+// environment-redeploy: 2026-07-28T01:43Z
 const GUILD_ID = '1531135205795172362';
 
 module.exports = async function handler(request, response) {
