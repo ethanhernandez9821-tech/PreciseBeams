@@ -118,3 +118,21 @@ if(menuToggle&&mobileNavigation){
     if(innerWidth>760) closeMobileNavigation();
   });
 }
+
+
+const memberCard=document.querySelector('.stats article:first-child');
+async function updateDiscordMemberCount(){
+  if(!memberCard) return;
+  try{
+    const response=await fetch('/api/discord-members',{headers:{Accept:'application/json'}});
+    if(!response.ok) return;
+    const {memberCount}=await response.json();
+    if(!Number.isFinite(memberCount)) return;
+    const number=memberCard.querySelector('strong');
+    const label=memberCard.querySelector('p');
+    if(number) number.textContent=memberCount.toLocaleString();
+    if(label) label.textContent='DISCORD MEMBERS';
+  }catch{}
+}
+updateDiscordMemberCount();
+setInterval(updateDiscordMemberCount,300000);
