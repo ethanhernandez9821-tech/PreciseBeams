@@ -130,8 +130,8 @@ async function updateDiscordMemberCount(){
     if(!Number.isFinite(memberCount)) return;
     const number=memberCard.querySelector('strong');
     const label=memberCard.querySelector('p');
-    if(number) number.textContent=memberCount.toLocaleString();
-    if(label) label.textContent='DISCORD MEMBERS';
+    if(number) number.textContent=`Trusted by ${memberCount.toLocaleString()}`;
+    if(label) label.textContent='MEMBERS';
   }catch{}
 }
 updateDiscordMemberCount();
