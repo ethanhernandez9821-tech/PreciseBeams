@@ -29,13 +29,13 @@ module.exports = async function handler(request, response) {
     }
 
     const guild = await discordResponse.json();
-    const memberCount = Number(guild.approximate_member_count);
+    const memberCount = Number(guild.member_count ?? guild.approximate_member_count);
 
     if (!Number.isFinite(memberCount)) {
       throw new Error('Invalid Discord member count');
     }
 
-    response.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
+    response.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=120');
     return response.status(200).json({ memberCount });
   } catch {
     response.setHeader('Cache-Control', 'no-store');
