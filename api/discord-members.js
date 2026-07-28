@@ -1,21 +1,34 @@
+const GUILD_ID = '1531135205795172362';
+
 module.exports = async function handler(request, response) {
   if (request.method !== 'GET') {
     response.setHeader('Allow', 'GET');
     return response.status(405).json({ error: 'Method not allowed' });
   }
 
+  const token = process.env.DISCORD_BOT_TOKEN;
+  if (!token) {
+    response.setHeader('Cache-Control', 'no-store');
+    return response.status(503).json({ error: 'Tracker is not configured' });
+  }
+
   try {
     const discordResponse = await fetch(
-      'https://discord.com/api/v10/invites/EGCcdVVV7?with_counts=true&with_expiration=true',
-      { headers: { Accept: 'application/json' } }
+      `https://discord.com/api/v10/guilds/${GUILD_ID}?with_counts=true`,
+      {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bot ${token}`
+        }
+      }
     );
 
     if (!discordResponse.ok) {
       throw new Error('Discord member count unavailable');
     }
 
-    const invite = await discordResponse.json();
-    const memberCount = Number(invite.approximate_member_count);
+    const guild = await discordResponse.json();
+    const memberCount = Number(guild.approximate_member_count);
 
     if (!Number.isFinite(memberCount)) {
       throw new Error('Invalid Discord member count');
