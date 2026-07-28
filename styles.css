@@ -76,40 +76,41 @@
 .safe-setup-text{max-width:100%;margin:0;color:#c9c9ce;font-size:13px;line-height:1.7;overflow-wrap:anywhere;word-break:normal;white-space:normal}
 
 
-/* Fluid responsive proportions */
+/* Balanced responsive proportions */
 @media(min-width:761px){
   .sidebar{width:205px}
-  .brand{height:64px;gap:10px;padding:0 16px;font-size:15px}
-  .brand img{width:34px;height:34px;border-radius:7px}
-  nav{gap:6px;padding:16px 10px}
-  .nav-link{height:42px;gap:11px;padding:0 14px;border-radius:10px;font-size:13px}
-  .nav-link svg{width:18px}
-  .sidebar-footer{padding:14px 11px}
-  .discord-button{height:43px;font-size:12px}
-  .content{width:calc(100vw - 205px);max-width:none;margin-left:205px;padding:24px clamp(22px,2.6vw,44px) 64px}
-  .page{width:100%;max-width:1400px}
-  .page-header{margin-bottom:30px}
-  .page-header h1{font-size:28px}
-  .page-header p{font-size:13px}
-  .stats{gap:22px;margin-bottom:30px}
-  .stats article{min-height:156px;padding:21px}
-  .box-icon,.gen-icon{width:44px;height:44px}
-  .stats strong{margin-top:16px;font-size:29px}
-  .stats p{font-size:11px}
-  .terms{padding:26px}
-  .terms>header{margin-bottom:25px}
-  .term-list{gap:13px}
+  .brand{height:60px;gap:9px;padding:0 14px;font-size:14px}
+  .brand img{width:32px;height:32px;border-radius:7px}
+  nav{gap:5px;padding:14px 9px}
+  .nav-link{height:39px;gap:10px;padding:0 12px;border-radius:9px;font-size:12px}
+  .nav-link svg{width:17px}
+  .sidebar-footer{padding:13px 10px}
+  .discord-button{height:40px;font-size:11px}
+  .content{width:calc(100vw - 205px);max-width:none;margin-left:205px;padding:24px clamp(22px,2.5vw,42px) 64px}
+  .page{width:min(100%,1120px);margin:0 auto}
+  .page-header{margin-bottom:25px}
+  .page-header h1{font-size:27px}
+  .page-header p{font-size:12px}
+  .stats{gap:18px;margin-bottom:24px}
+  .stats article{min-height:148px;padding:20px}
+  .box-icon,.gen-icon{width:43px;height:43px}
+  .stats strong{margin-top:15px;font-size:28px}
+  .stats p{font-size:10px}
+  .terms{padding:25px}
+  .terms>header{margin-bottom:21px}
+  .term-list{gap:11px}
   .term-list article{padding:15px 14px}
-  .gen-grid{grid-template-columns:repeat(3,minmax(240px,1fr))}
+  .gen-grid{grid-template-columns:repeat(3,minmax(220px,1fr));gap:18px}
 }
-@media(min-width:761px) and (max-width:1100px){
-  .sidebar{width:190px}
-  .content{width:calc(100vw - 190px);margin-left:190px;padding:24px}
-  .stats article{min-height:150px}
-  .terms{padding:24px}
+@media(min-width:761px) and (max-width:1050px){
+  .sidebar{width:185px}
+  .content{width:calc(100vw - 185px);margin-left:185px;padding:22px}
+  .stats article{min-height:140px}
+  .terms{padding:22px}
 }
 @media(max-width:760px){
   .content{width:100%;padding:22px 15px 50px}
+  .page{width:100%;margin:0}
   .page-header{margin-bottom:21px}
   .page-header h1{font-size:24px}
   .stats{gap:13px;margin-bottom:20px}
