@@ -1,5 +1,5 @@
 // environment-redeploy: 2026-07-28T01:43Z
-const GUILD_ID = '1531135205795172362';
+const TARGET_GUILD_ID = '1531135205795172362';
 
 module.exports = async function handler(request, response) {
   if (request.method !== 'GET') {
@@ -15,7 +15,7 @@ module.exports = async function handler(request, response) {
 
   try {
     const discordResponse = await fetch(
-      `https://discord.com/api/v10/guilds/${GUILD_ID}?with_counts=true`,
+      `https://discord.com/api/v10/guilds/${TARGET_GUILD_ID}?with_counts=true`,
       {
         headers: {
           Accept: 'application/json',
