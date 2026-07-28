@@ -87,7 +87,7 @@
   .sidebar-footer{padding:13px 10px}
   .discord-button{height:40px;font-size:11px}
   .content{width:calc(100vw - 205px);max-width:none;margin-left:205px;padding:24px clamp(22px,2.5vw,42px) 64px}
-  .page{width:min(100%,1040px);margin:0}
+  .page{width:100%;max-width:none;margin:0}
   .page-header{margin-bottom:25px}
   .page-header h1{font-size:27px}
   .page-header p{font-size:12px}
