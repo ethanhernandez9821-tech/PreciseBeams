@@ -121,21 +121,9 @@ if(menuToggle&&mobileNavigation){
 
 
 const memberCard=document.querySelector('.stats article:first-child');
-async function updateDiscordMemberCount(){
-  if(!memberCard) return;
-  try{
-    const response=await fetch('/api/discord-members',{headers:{Accept:'application/json'}});
-    if(!response.ok) return;
-    const {memberCount}=await response.json();
-    if(!Number.isFinite(memberCount)) return;
-    const number=memberCard.querySelector('strong');
-    const label=memberCard.querySelector('p');
-    if(number){
-      const compactCount=new Intl.NumberFormat('en-US',{notation:'compact',maximumFractionDigits:1}).format(memberCount);
-      number.textContent=compactCount;
-    }
-    if(label) label.textContent='USERS';
-  }catch{}
+if(memberCard){
+  const number=memberCard.querySelector('strong');
+  const label=memberCard.querySelector('p');
+  if(number) number.textContent='100+';
+  if(label) label.textContent='MEMBERS';
 }
-updateDiscordMemberCount();
-setInterval(updateDiscordMemberCount,300000);
